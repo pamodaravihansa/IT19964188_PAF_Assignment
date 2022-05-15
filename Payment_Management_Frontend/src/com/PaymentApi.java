@@ -74,6 +74,9 @@ public class PaymentApi extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Map paras = getParasMap(request);
+		String output = paymentObj.deletePayment(paras.get("accountNo").toString());
+		response.getWriter().write(output);
 	}
 	
 	// Convert request parameters to a Map
