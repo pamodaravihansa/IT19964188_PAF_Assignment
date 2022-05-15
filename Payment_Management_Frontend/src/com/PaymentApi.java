@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/PaymentApi")
 public class PaymentApi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+		Payment paymentObj = new Payment();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,7 +37,14 @@ public class PaymentApi extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String output = paymentObj.insertPayment(Integer.valueOf(request.getParameter("accountNo")),				
+				request.getParameter("customerName"),
+				request.getParameter("unitsConsumed"),
+				request.getParameter("chargeForUnits"),
+				request.getParameter("adjustments"),
+				request.getParameter("totalAmount"));
+		
+			response.getWriter().write(output);
 	}
 
 	/**
