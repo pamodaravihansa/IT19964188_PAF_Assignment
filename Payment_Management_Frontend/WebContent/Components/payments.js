@@ -116,3 +116,32 @@ function onPaymentDeleteComplete(response, status) {
 		$("#alertError").show();
 	}
 }
+
+
+//Client model validate form
+
+function validatePaymentForm() {
+
+	// Customer Name
+	if ($("#customerName").val().trim() == "") {
+		return "Insert Customer Name.";
+	}
+
+	// Phone Number-------------------------------
+	if ($("#unitsConsumed").val().trim() == "") {
+		return "Insert units consumed.";
+	}
+
+	// is numerical value for units
+	var tmpunitsConsumed = $("#unitsConsumed").val().trim();
+	if (!$.isNumeric(tmpunitsConsumed)) {
+		return "Insert a numerical value for Units Consumed.";
+	}
+
+	//  Adjustments------------------------
+	if ($("#adjustments").val().trim() == "") {
+		return "Insert Adjustments.";
+	}
+
+	return true;
+}
