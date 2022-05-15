@@ -111,8 +111,8 @@ public class Payment {
 
 					
 					// buttons							
-					output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary' data-accountNo='" + accountNo + "'></td>"
-							+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-accountNo='" + accountNo + "'></td></tr>";
+					output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary' data-itemid='" + accountNo + "'></td>"
+							+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-itemid='" + accountNo + "'></td></tr>";
 					
 					
 					
