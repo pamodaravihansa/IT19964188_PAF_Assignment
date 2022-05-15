@@ -53,9 +53,12 @@ public class Payment {
 				preparedStmt.execute();
 				con.close();
 
-				output = "Inserted successfully";
+				String newInquiries = readPayments();
+				output = "{\"status\":\"success\", \"data\": \"" +
+				newInquiries + "\"}";
 			} catch (Exception e) {
-				output = "Error while inserting the inquiries.";
+				output = "{\"status\":\"error\", \"data\":"
+						+ "\"Error while inserting the payment.\"}";
 				System.err.println(e.getMessage());
 			}
 
@@ -159,9 +162,11 @@ public class Payment {
 				preparedStmt.execute();
 				con.close();
 
-				output = "Updated successfully";
+				String newPayment = readPayments();
+				output = "{\"status\":\"success\", \"data\": \"" +
+				newPayment + "\"}";
 			} catch (Exception e) {
-				output = "Error while updating the payment.";
+				output = "{\"status\":\"error\", \"data\":\"Error while updating the payment.\"}";
 				System.err.println(e.getMessage());
 			}
 
@@ -191,10 +196,12 @@ public class Payment {
 				preparedStmt.execute();
 				con.close();
 
-				output = "Deleted successfully";
+				String newPayment = readPayments();
+				output = "{\"status\":\"success\", \"data\": \"" +
+				newPayment + "\"}";
 
 			} catch (Exception e) {
-				output = "Error while deleting the item.";
+				output = "Error while deleting the payment.";
 				System.err.println(e.getMessage());
 			}
 
