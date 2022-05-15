@@ -14,7 +14,7 @@ $(document).on("click", "#btnSave", function(event)
 	$("#alertError").hide();
 	
 	// Form validation-------------------
-	var status = validateComplaintForm();
+	var status = validatePaymentForm();
 	if (status != true) 
 	{
 		$("#alertError").text(status);
@@ -27,13 +27,17 @@ $(document).on("click", "#btnSave", function(event)
 	
 	$.ajax(
 		{
-			url: "PaymentsAPI",
+			url: "PaymentAPI",
 			type: type,
 			data: $("#formPayment").serialize(),
 			dataType: "text",
 			complete: function(response, status) 
 			{
-				onComplaintSaveComplete(response.responseText, status);
+				onPaymentSaveComplete(response.responseText, status);
 			}
 		});
 });
+
+
+
+
