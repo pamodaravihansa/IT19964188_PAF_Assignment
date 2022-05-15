@@ -134,7 +134,7 @@ public class Payment {
 		
 		//update payment
 		
-		public String updatePayment(int accountno, String cname, String uconsumed, String cforunits, String ajustm, String total) {
+		public String updatePayment(String accountno, String cname, String uconsumed, String cforunits, String ajustm, String total) {
 			String output = "";
 			try {
 				Connection con = connect();
@@ -151,7 +151,7 @@ public class Payment {
 
 				// binding values
 										
-				preparedStmt.setInt(1, accountno);
+				preparedStmt.setString(1, accountno);
 				preparedStmt.setString(2, cname);
 				preparedStmt.setString(3, uconsumed);
 				preparedStmt.setString(4, cforunits);
